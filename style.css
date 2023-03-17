@@ -1,13 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=MuseoModerno:wght@100&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-body {
-  background-color: azure;
-  min-height: 100vh;
 
-  color: gray;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+body {
+  background-color: #060047;
+  min-height: 100vh;
+  font-family: "MuseoModerno", cursive;
+  color: #865dff;
   font-size: 1em;
+}
+h1 {
+  font-size: 2em;
+  text-align: center;
 }
