@@ -24,7 +24,29 @@ console.log(images);
 
 let shuffle = () => {
   images.sort(() => Math.random() - 0.5);
-  let shuffledImages = console.log(images);
-  return shuffledImages;
+  console.log(images);
+  return images;
 };
 shuffle();
+//create cards
+let container = document.querySelector("#container");
+let createCards = () => {
+  let shuffledImages = shuffle();
+  console.log(shuffledImages[0]);
+  container = document.querySelector("#container");
+  let cards = document.createElement("div");
+  cards.classList.add("cards");
+  container.appendChild(cards);
+  shuffledImages.forEach((image) => {
+    let card = document.createElement("div");
+    let front = document.createElement("img");
+    let back = document.createElement("div");
+    card.classList.add("card");
+    front.classList.add("front");
+    back.classList.add("back");
+    card.appendChild(front);
+    card.appendChild(back);
+    cards.appendChild(card);
+  });
+};
+createCards();
