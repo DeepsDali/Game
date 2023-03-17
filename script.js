@@ -18,3 +18,13 @@ let images = [
   { name: "tulip", imgSrc: "./images/tulips.jpg", id: 15 },
   { name: "daisy", imgSrc: "./images/ldaisies.jpg", id: 16 },
 ];
+console.log(images);
+
+//shuffle the images
+
+let shuffle = () => {
+  images.sort(() => Math.random() - 0.5);
+  let shuffledImages = console.log(images);
+  return shuffledImages;
+};
+shuffle();
