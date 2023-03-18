@@ -8,7 +8,7 @@ let images = [
   { name: "marigold", imgSrc: "./images/marigold.jpg", id: 5 },
   { name: "orchid", imgSrc: "./images/orchids.jpg", id: 6 },
   { name: "tulip", imgSrc: "./images/tulips.jpg", id: 7 },
-  { name: "daisy", imgSrc: "./images/ldaisies.jpg", id: 8 },
+  { name: "daisy", imgSrc: "./images/daisies.jpg", id: 8 },
   { name: "rose", imgSrc: "./images/roses.jpg", id: 9 },
   { name: "carnation", imgSrc: "./images/carnations.jpg", id: 10 },
   { name: "lily", imgSrc: "./images/lilies.jpg", id: 11 },
@@ -16,7 +16,7 @@ let images = [
   { name: "marigold", imgSrc: "./images/marigold.jpg", id: 13 },
   { name: "orchid", imgSrc: "./images/orchids.jpg", id: 14 },
   { name: "tulip", imgSrc: "./images/tulips.jpg", id: 15 },
-  { name: "daisy", imgSrc: "./images/ldaisies.jpg", id: 16 },
+  { name: "daisy", imgSrc: "./images/daisies.jpg", id: 16 },
 ];
 console.log(images);
 
@@ -40,6 +40,7 @@ let createCards = () => {
   shuffledImages.forEach((image) => {
     let card = document.createElement("div");
     let front = document.createElement("img");
+    front.src = image.imgSrc;
     let back = document.createElement("div");
     card.classList.add("card");
     front.classList.add("front");
