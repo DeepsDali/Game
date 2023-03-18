@@ -40,14 +40,14 @@ let createCards = () => {
   shuffledImages.forEach((image) => {
     let card = document.createElement("div");
     let front = document.createElement("img");
-    front.src = image.imgSrc;
     let back = document.createElement("div");
+    front.src = image.imgSrc;
     card.classList.add("card");
     front.classList.add("front");
     back.classList.add("back");
+    cards.appendChild(card);
     card.appendChild(front);
     card.appendChild(back);
-    cards.appendChild(card);
   });
 };
 createCards();
