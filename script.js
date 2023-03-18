@@ -44,7 +44,6 @@ let createCards = () => {
     front.src = image.imgSrc;
     card.classList.add("card");
     card.setAttribute("name", image.name);
-    console.log(card.name);
     front.classList.add("front");
     back.classList.add("back");
     cards.appendChild(card);
@@ -53,9 +52,29 @@ let createCards = () => {
     //check if card is getting clicked
     card.addEventListener("click", (e) => {
       card.classList.toggle("flip");
-      let selectedCard = e.target;
-      console.log(selectedCard);
+
+      compareCards(e);
     });
   });
 };
 createCards();
+
+//compare cards
+
+let compareCards = (e) => {
+  let selectedCard = e.target;
+  console.log(selectedCard);
+  selectedCard.classList.add("selected");
+  let selectedCards = document.querySelectorAll(".selected");
+  console.log(selectedCards);
+  if (selectedCards.length === 2) {
+    if (
+      selectedCards[0].getAttribute("name") ===
+      selectedCards[1].getAttribute("name")
+    ) {
+      console.log(`Cards match`);
+    } else {
+      console.log(`Cards don't match`);
+    }
+  }
+};
