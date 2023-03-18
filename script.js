@@ -43,11 +43,19 @@ let createCards = () => {
     let back = document.createElement("div");
     front.src = image.imgSrc;
     card.classList.add("card");
+    card.setAttribute("name", image.name);
+    console.log(card.name);
     front.classList.add("front");
     back.classList.add("back");
     cards.appendChild(card);
     card.appendChild(front);
     card.appendChild(back);
+    //check if card is getting clicked
+    card.addEventListener("click", (e) => {
+      card.classList.toggle("flip");
+      let selectedCard = e.target;
+      console.log(selectedCard);
+    });
   });
 };
 createCards();
