@@ -34,9 +34,10 @@ let createCards = () => {
   let shuffledImages = shuffle();
   console.log(shuffledImages[0]);
   container = document.querySelector("#container");
+  game = document.querySelector("#game");
   let cards = document.createElement("div");
   cards.classList.add("cards");
-  container.appendChild(cards);
+  game.appendChild(cards);
   shuffledImages.forEach((image) => {
     let card = document.createElement("div");
     let front = document.createElement("img");
@@ -60,7 +61,7 @@ let createCards = () => {
 createCards();
 
 //compare cards
-
+let moves = 0;
 let compareCards = (e) => {
   let selectedCard = e.target;
   console.log(selectedCard);
@@ -73,8 +74,18 @@ let compareCards = (e) => {
       selectedCards[1].getAttribute("name")
     ) {
       console.log(`Cards match`);
+      selectedCards.forEach((card) => {
+        card.classList.remove("selected");
+        card.style.pointerEvents = "none";
+      });
     } else {
       console.log(`Cards don't match`);
+      selectedCards.forEach((card) => {
+        card.classList.remove("selected");
+        setTimeout(() => card.classList.remove("flip"), 1000);
+      });
+      moves++;
+      document.querySelector("#moves").innerHTML = moves;
     }
   }
 };
