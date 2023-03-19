@@ -68,6 +68,7 @@ let compareCards = (e) => {
   selectedCard.classList.add("selected");
   let selectedCards = document.querySelectorAll(".selected");
   console.log(selectedCards);
+
   if (selectedCards.length === 2) {
     if (
       selectedCards[0].getAttribute("name") ===
@@ -84,8 +85,25 @@ let compareCards = (e) => {
         card.classList.remove("selected");
         setTimeout(() => card.classList.remove("flip"), 1000);
       });
+
       moves++;
       document.querySelector("#moves").innerHTML = moves;
+      if (moves === 3) {
+        document.querySelector("#min").innerHTML = "Hi";
+      }
     }
   }
 };
+
+//timer
+let restart = document.querySelector("#reset");
+
+restart.addEventListener("click", () => {
+  cards = document.querySelector(".cards");
+  console.log("restart clicked");
+  moves = 0;
+  document.querySelector("#moves").innerHTML = moves;
+  console.log(moves);
+  cards.remove();
+  createCards();
+});
