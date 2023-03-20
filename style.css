@@ -38,7 +38,7 @@ span {
   background: #0d3a37;
   /* background: linear-gradient(to bottom, #0d3a37, #739f56); */
   color: #cbc0d3;
-  border: solid 5px #cbc0d3;
+  border: solid 2px #cbc0d3;
   border-radius: 5px;
   padding: 5px;
   margin: 10px;
@@ -47,6 +47,10 @@ span {
   flex-direction: column;
   justify-content: space-between;
   box-shadow: rgba(0, 0, 0, 0.5) 10px 25px 10px;
+}
+#end {
+  color: rgb(251, 194, 7);
+  font-weight: bolder;
 }
 #reset {
   background-color: #cbc0d3;
@@ -115,6 +119,7 @@ section {
     display: flex;
     flex-direction: row-reverse;
   }
+
   #panel {
     display: flex;
     align-items: center;

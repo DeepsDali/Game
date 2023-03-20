@@ -29,6 +29,7 @@ let shuffle = () => {
 };
 shuffle();
 //create cards
+let moves = 0;
 let container = document.querySelector("#container");
 let createCards = () => {
   let shuffledImages = shuffle();
@@ -53,15 +54,21 @@ let createCards = () => {
     //check if card is getting clicked
     card.addEventListener("click", (e) => {
       card.classList.toggle("flip");
-
       compareCards(e);
+      moves++;
+      document.querySelector("#moves").innerHTML = moves;
+      if (moves === 1) {
+        timer = true;
+        startStopWatch();
+      }
     });
   });
 };
 createCards();
 
 //compare cards
-let moves = 0;
+// let moves = 0;
+let matchedCards = 0;
 let compareCards = (e) => {
   let selectedCard = e.target;
   console.log(selectedCard);
@@ -75,6 +82,12 @@ let compareCards = (e) => {
       selectedCards[1].getAttribute("name")
     ) {
       console.log(`Cards match`);
+      matchedCards++;
+      if (matchedCards === 8) {
+        document.querySelector("#end").innerHTML = "All cards matched!";
+        timer = false;
+        stopStopWatch();
+      }
       selectedCards.forEach((card) => {
         card.classList.remove("selected");
         card.style.pointerEvents = "none";
@@ -86,24 +99,59 @@ let compareCards = (e) => {
         setTimeout(() => card.classList.remove("flip"), 1000);
       });
 
-      moves++;
-      document.querySelector("#moves").innerHTML = moves;
-      if (moves === 3) {
-        document.querySelector("#min").innerHTML = "Hi";
-      }
+      // moves++;
+      // document.querySelector("#moves").innerHTML = moves;
     }
   }
 };
 
-//timer
+//restart
 let restart = document.querySelector("#reset");
-
 restart.addEventListener("click", () => {
   cards = document.querySelector(".cards");
   console.log("restart clicked");
   moves = 0;
   document.querySelector("#moves").innerHTML = moves;
+  resetStopWatch();
   console.log(moves);
   cards.remove();
   createCards();
 });
+//stopwatch
+let minutes = 0;
+let seconds = 0;
+let min = document.querySelector("#min");
+let sec = document.querySelector("#sec");
+let Interval = 0;
+
+let startStopWatch = () => {
+  min.innerHTML = "0";
+  sec.innerHTML = "0";
+  Interval = setInterval(startTimer, 1000);
+};
+
+let stopStopWatch = () => {
+  clearInterval(Interval);
+};
+let resetStopWatch = () => {
+  clearInterval(Interval);
+  minutes = 0;
+  seconds = 0;
+  min.innerHTML = "0";
+  sec.innerHTML = "0";
+};
+
+let startTimer = () => {
+  min.innerHTML = minutes;
+  sec.innerHTML = seconds;
+  seconds++;
+
+  if (seconds === 60) {
+    minutes++;
+    seconds = 0;
+  }
+  if (minutes === 60) {
+    minutes = 0;
+    seconds = 0;
+  }
+};
