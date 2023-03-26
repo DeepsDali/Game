@@ -1,6 +1,6 @@
 # Memory game - Matching cards
 
-![Project Gallery](./images/game.JPG "PG")
+![Memory game](./images/game.JPG "PG")
 
 ## Description
 
