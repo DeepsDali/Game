@@ -28,7 +28,7 @@ Game has 16 cards arranged face down in a grid layout. On reload and restart car
 
 \* Dynamically generate cards by creating divs. Loop through the shuffled images to use on the front panel. Assign an image name attribute to identify individual cards.
 
-\* Add event listener on cards to check if card is clicked and log every click as 1 move. A class `flip` would toggle the front and back of the card.
+\* Add event listener on cards to check if card is clicked and log 2 consecutive clicks as 1 move. A class `flip` would toggle the front and back of the card.
 
 \* Create a compare cards function which would add a new class of `selected` to the cards when clicked. The cards would be put in an array and on the array length becoming 2 the images would be compared to check if they match based on their name attribute. If they matched a css pointer property would make them unclickable and their `selected` class would be removed. If not the cards would flip back after a second.
 

@@ -57,7 +57,11 @@ let createCards = () => {
       card.classList.toggle("flip");
       compareCards(e);
       moves++;
-      document.querySelector("#moves").innerHTML = moves;
+
+      if (moves % 2 === 0) {
+        document.querySelector("#moves").innerHTML = moves / 2;
+      }
+
       if (moves === 1) {
         timer = true;
         startStopWatch();
