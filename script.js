@@ -52,6 +52,7 @@ let createCards = () => {
     card.appendChild(front);
     card.appendChild(back);
     //check if card is getting clicked
+
     card.addEventListener("click", (e) => {
       card.classList.toggle("flip");
       compareCards(e);
@@ -85,7 +86,6 @@ let compareCards = (e) => {
       matchedCards++;
       if (matchedCards === 8) {
         document.querySelector("#end").innerHTML = "All cards matched!";
-        timer = false;
         stopStopWatch();
       }
       selectedCards.forEach((card) => {
@@ -98,9 +98,6 @@ let compareCards = (e) => {
         card.classList.remove("selected");
         setTimeout(() => card.classList.remove("flip"), 1000);
       });
-
-      // moves++;
-      // document.querySelector("#moves").innerHTML = moves;
     }
   }
 };
@@ -112,6 +109,8 @@ restart.addEventListener("click", () => {
   console.log("restart clicked");
   moves = 0;
   document.querySelector("#moves").innerHTML = moves;
+  document.querySelector("#end").innerHTML =
+    "Start matching cards.<br/>Good luck!";
   resetStopWatch();
   console.log(moves);
   cards.remove();
