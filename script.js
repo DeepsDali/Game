@@ -76,6 +76,7 @@ createCards();
 let matchedCards = 0;
 let compareCards = (e) => {
   let selectedCard = e.target;
+
   console.log(selectedCard);
   selectedCard.classList.add("selected");
   let selectedCards = document.querySelectorAll(".selected");
@@ -91,6 +92,7 @@ let compareCards = (e) => {
       if (matchedCards === 8) {
         document.querySelector("#end").innerHTML = "All cards matched!";
         stopStopWatch();
+        console.log(`watch stopped`);
       }
       selectedCards.forEach((card) => {
         card.classList.remove("selected");
@@ -116,6 +118,7 @@ restart.addEventListener("click", () => {
   document.querySelector("#end").innerHTML =
     "Start matching cards.<br/>Good luck!";
   resetStopWatch();
+  matchedCards = 0;
   console.log(moves);
   cards.remove();
   createCards();
